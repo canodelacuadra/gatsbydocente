@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import Layout from "../components/layout";
@@ -11,23 +11,30 @@ import MiMapa from "../components/mimapa";
 
 const IndexPage = () => {
   const [latLng, setLatLng] = useState(null);
-  const componente = <div>
+  const [isClient, setIsClient] = useState(false);
 
-    <MiMapa setLatLng={setLatLng} />
-    <div className="coordinates">
-      {latLng ? (
-        <p>
-          Latitud: {latLng.lat}, Longitud: {latLng.lng}
-        </p>
-      ) : (
-        <p>Haz clic en el mapa para obtener las coordenadas del punto seleccionado</p>
-      )}
-    </div>
-  </div>
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setIsClient(true);
+    }
+  }, []);
+
   // https://stackoverflow.com/questions/51304195/react-leaflet-with-gatsby
   return (
     <Layout>
-      {typeof window !== 'undefined' && componente}
+      {isClient && <div>
+
+        <MiMapa setLatLng={setLatLng} />
+        <div className="coordinates">
+          {latLng ? (
+            <p>
+              Latitud: {latLng.lat}, Longitud: {latLng.lng}
+            </p>
+          ) : (
+            <p>Haz clic en el mapa para obtener las coordenadas del punto seleccionado</p>
+          )}
+        </div>
+      </div>}
 
 
     </Layout>

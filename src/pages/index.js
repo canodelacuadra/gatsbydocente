@@ -7,7 +7,7 @@ import TandemModal from "../components/tandemmodal"
 import TandemSlider from "../components/tandemslider"
 import { Button } from 'primereact/button';  
 import Alumno from "../components/alumno"
-import LectorMapa from "../components/lectormapa"
+import MiMapa from "../components/mimapa"
 
 const IndexPage = () => {
  
@@ -16,8 +16,7 @@ const IndexPage = () => {
   <>
  <Layout>
 
-<LectorMapa></LectorMapa>
-
+<MiMapa></MiMapa>
  </Layout>
 
 

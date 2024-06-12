@@ -18,34 +18,19 @@ L.Icon.Default.mergeOptions({
 });
 
 
-const LocationMarker = ({ setLatLng }) => {
-    const map = useMap();
-  
-    useEffect(() => {
-      const handleClick = (e) => {
-        setLatLng(e.latlng);
-      };
-  
-      map.on('click', handleClick);
-  
-      // Limpiar el evento cuando el componente se desmonte
-      return () => {
-        map.off('click', handleClick);
-      };
-    }, [map, setLatLng]);
-  
-    return null;
-  };
-
-const MiMapa = ({ setLatLng }) => {
+const MiMapa = () => {
     return (
         <MapContainer center={[40.030501, -3.604052]} zoom={13} style={{ height: '50vh', width: '100%' }}>
-            <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            />
-            <LocationMarker setLatLng={setLatLng} />
-        </MapContainer>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={[40.030501, -3.604052]}>
+          <Popup>
+            A pretty CSS3 popup. <br /> Easily customizable.
+          </Popup>
+        </Marker>
+      </MapContainer>
     );
 };
 

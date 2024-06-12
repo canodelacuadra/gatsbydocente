@@ -17,11 +17,18 @@ exports.createPages = async ({ actions }) => {
   })
 }
 //https://stackoverflow.com/questions/51304195/react-leaflet-with-gatsby
-exports.modifyWebpackConfig = ({ config, stage }) => {
+
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   if (stage === 'build-html') {
-    config.loader('null', {
-      test: /react-leaflet/,
-      loader: 'null-loader',
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /react-leaflet|leaflet/,
+            use: loaders.null(),
+          },
+        ],
+      },
     })
   }
 }

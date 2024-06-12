@@ -17,6 +17,7 @@ L.Icon.Default.mergeOptions({
     shadowUrl,
 });
 
+
 const LocationMarker = ({ setLatLng }) => {
     const map = useMap();
   

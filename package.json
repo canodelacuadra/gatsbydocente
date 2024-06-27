@@ -16,6 +16,7 @@
     "leaflet": "^1.9.4",
     "popover": "^2.4.1",
     "primereact": "^10.6.6",
+    "qrcode.react": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.2.1",

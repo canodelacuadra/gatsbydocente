@@ -1,6 +1,6 @@
 // src/components/MapaConMarcador.js
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer,  useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 const MapaConMarcador = ({ setLatLng }) => {
